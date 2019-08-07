@@ -66,7 +66,7 @@
 HIF hif = hifInvalid;
 
 // Device name string
-char szDvc[64] = "ioexp";
+char szDvc[64] = "CmodS6";
 
 // Variables to be set by Daci functions
 ULONG bdrSet;
