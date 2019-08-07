@@ -40,7 +40,7 @@
 #include <stdlib.h>
 //#include <stdafx.h>
 #include <string.h>
-#include "pch.h"
+//#include "pch.h"
 
 
 #include "digilent.adept.sdk_v2.4.2/include/dpcdecl.h"
