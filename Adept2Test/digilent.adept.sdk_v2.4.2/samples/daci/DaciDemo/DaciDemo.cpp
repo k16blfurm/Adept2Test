@@ -24,11 +24,11 @@
 /* ------------------------------------------------------------ */
 
 #if defined(WIN32)
-
+	
 	/* Include Windows specific headers here.
 	*/
-#include <windows.h>
-
+	#include <windows.h>
+	
 #else
 
 	/* Include Unix specific headers here.
@@ -38,31 +38,29 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include <stdafx.h>
 #include <string.h>
-#include "pch.h"
 
 
 #include "digilent.adept.sdk_v2.4.2/include/dpcdecl.h"
 #include "digilent.adept.sdk_v2.4.2/include/dmgr.h"
 #include "digilent.adept.sdk_v2.4.2/include/depp.h"
-#include "digilent.adept.sdk_v2.4.2/include/daci.h"
+#include "digilent.adept.sdk_v2.4.2/includedaci.h"
 
-	/* ------------------------------------------------------------ */
-	/*					Local Type and Constant Definitions			*/
-	/* ------------------------------------------------------------ */
-
-
-	/* ------------------------------------------------------------ */
-	/*					Global Variables							*/
-	/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/*					Local Type and Constant Definitions			*/
+/* ------------------------------------------------------------ */
 
 
-	/* ------------------------------------------------------------ */
-	/*					Local Variables								*/
-	/* ------------------------------------------------------------ */
+/* ------------------------------------------------------------ */
+/*					Global Variables							*/
+/* ------------------------------------------------------------ */
 
-	// Device handle
+
+/* ------------------------------------------------------------ */
+/*					Local Variables								*/
+/* ------------------------------------------------------------ */
+
+// Device handle
 HIF hif = hifInvalid;
 
 // Device name string
@@ -77,16 +75,11 @@ char szSend[] = "Digilent test message";
 char szRcv[1024];
 
 // UART configuration
-ULONG	bdrReq = 2400;
-INT32	cbtData = 8;
-INT32	idStop = 1;
-INT32	idParity = 0;
-BOOL	fRxBlock = fTrue;
-
-using namespace std;
-
-
-
+ULONG	bdrReq		= 2400;
+INT32	cbtData		= 8;
+INT32	idStop		= 1;
+INT32	idParity	= 0;
+BOOL	fRxBlock	= fTrue;
 
 /* ------------------------------------------------------------ */
 /*					Forward Declarations						*/
@@ -102,7 +95,7 @@ void ErrorExit();
 **		none
 **
 **	Return Value:
-**		0 if successful
+**		0 if successful 
 **		non-zero otherwise
 **
 **	Errors:
@@ -118,27 +111,27 @@ int main(void) {
 
 	/* Connect to device using DMGR */
 	// DMGR API Call: DmgrOpen
-	if (!DmgrOpen(&hif, szDvc)) {
+	if(!DmgrOpen(&hif, szDvc)) {
 		printf("Error: Could not open device %s\n", szDvc);
 		ErrorExit();
 	}
 
 	/* Enable asynchronous communications interface (UART) on device */
 	// DACI API Call: DaciEnable
-	if (!DaciEnable(hif)) {
+	if(!DaciEnable(hif)) {
 		printf("Error: DtwiEnable failed\n");
 		ErrorExit();
 	}
 
 	/* Configure baud rate on board */
 	// DACI API Call: DaciSetBaud
-	if (!DaciSetBaud(hif, bdrReq, &bdrSet)) {
+	if(!DaciSetBaud(hif, bdrReq, &bdrSet)) {
 		printf("Error: DaciSetBaud failed\n");
 		ErrorExit();
 	}
 
 	/* Verify that the baud rate was set correctly */
-	if (bdrSet != bdrReq) {
+	if( bdrSet != bdrReq ) {
 		printf("WARNING: Baud rate set was different from requested\n");
 		printf("Requested: %lu\n", bdrReq);
 		printf("Set: %lu\n", bdrSet);
@@ -146,36 +139,36 @@ int main(void) {
 
 	/* Configure UART frame */
 	// DACI API Call: DaciSetMode
-	if (!DaciSetMode(hif, cbtData, idStop, idParity)) {
+	if(!DaciSetMode(hif, cbtData, idStop, idParity)) {
 		printf("Error: DaciSetMode failed\n");
 		ErrorExit();
 	}
 
 	/* Make recieve functions blocking. This allows all data sent by the transmitter to arrive before the DaciGetBuf call returns. */
 	// DACI API Call: DaciSetRxBlock
-	if (!DaciSetRxBlock(hif, fTrue)) {
+	if(!DaciSetRxBlock(hif, fTrue)) {
 		printf("Error: DaciSetRxBlock failed\n");
 		ErrorExit();
 	}
 
 	/* Send data to board for UART transmission */
 	// DACI API Call: DaciPutBuf
-	if (!DaciPutBuf(hif, (BYTE*)szSend, strlen(szSend), fFalse)) {
+	if(!DaciPutBuf(hif, (BYTE*) szSend, strlen(szSend), fFalse)) {
 		printf("Error: DaciPutBuf failed\n");
 		ErrorExit();
 	}
 
 	/* Get recieved UART data. Note that without the previous call to DaciSetRxBlock, this call will fail because
 	   insufficient time will have elapsed from when DaciPutBuf was called for any data to have arrived at the reciever */
-	   // DACI API Call: DaciGetBuf
-	if (!DaciGetBuf(hif, (BYTE*)szRcv, strlen(szSend), &cchRcv, fFalse)) {
+	// DACI API Call: DaciGetBuf
+	if(!DaciGetBuf(hif, (BYTE*) szRcv, strlen(szSend), &cchRcv, fFalse)) {
 		printf("Error: DaciGetBuf failed\n");
 		ErrorExit();
 	}
 
 
 	/* Compare recieved data to transmitted data */
-	if (strcmp(szSend, szRcv) == 0) {
+	if( strcmp(szSend, szRcv) == 0 ) {
 		printf("Recieved data matched transmitted data. Success\n");
 	}
 	else {
@@ -213,7 +206,7 @@ int main(void) {
 **		Disables Daci, closes the device, and exits the program
 */
 void ErrorExit() {
-	if (hif != hifInvalid) {
+	if( hif != hifInvalid ) {
 		// DACI API Call: DaciDisable
 		DaciDisable(hif);
 

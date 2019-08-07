@@ -18,12 +18,60 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\daci.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\daio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\demc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\depp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dgio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\djtg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dmgr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dmgt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcdecl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcdefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpti.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dspi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dstm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dtwi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="pch.cpp">
+    <ClCompile Include="Adept2Test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Adept2Test.cpp">
+    <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

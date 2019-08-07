@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -151,16 +151,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\daci.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\daio.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\demc.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\depp.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dgio.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\djtg.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dmgr.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dmgt.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcdecl.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcdefs.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpcutil.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpio.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dpti.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dspi.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dstm.h" />
+    <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dtwi.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adept2Test.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
