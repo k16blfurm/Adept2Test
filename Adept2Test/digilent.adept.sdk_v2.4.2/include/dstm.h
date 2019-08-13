@@ -25,6 +25,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dtwi.h>
 #if !defined(DSTM_INCLUDED)
 #define      DSTM_INCLUDED
 

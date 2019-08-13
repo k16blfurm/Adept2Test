@@ -23,6 +23,8 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dgio.h>
+#include <Windows.h>
 #if !defined(DEMC_INCLUDED)
 #define      DEMC_INCLUDED
 

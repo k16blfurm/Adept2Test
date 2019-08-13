@@ -45,6 +45,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dmgt.h>
 #if !defined(DJTG_INCLUDED)
 #define      DJTG_INCLUDED
 

@@ -25,6 +25,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dpcdecl.h>
 #if !defined(DTWI_INCLUDED)
 #define      DTWI_INCLUDED
 

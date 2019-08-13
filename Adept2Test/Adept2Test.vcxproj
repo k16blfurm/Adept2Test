@@ -91,10 +91,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dabs.lib;daci.lib;daio.lib;demc.lib;depp.lib;dgio.lib;djtg.lib;dmgr.lib;dmgt.lib;dpcomm.lib;dpcutil.lib;dpio.lib;dpti.lib;dspi.lib;dstm.lib;dtwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -106,12 +109,12 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Blaine\source\repos\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;C:\Users\Blaine\source\repos\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\lib64;C:\Users\Blaine\source\repos\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>dabs.lib;daci.lib;daio.lib;demc.lib;depp.lib;dgio.lib;djtg.lib;dmgr.lib;dmgt.lib;dpcomm.lib;dpcutil.lib;dpio.lib;dpti.lib;dspi.lib;dstm.lib;dtwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -170,14 +173,11 @@
     <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dspi.h" />
     <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dstm.h" />
     <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dtwi.h" />
-    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Adept2Test.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

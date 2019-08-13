@@ -1,22 +1,4 @@
-/************************************************************************/
-/*																		*/
-/*  DeppDemo.cpp  --  DEPP DEMO Main Program							*/
-/*																		*/
-/************************************************************************/
-/*  Author:	Aaron Odell													*/
-/*  Copyright:	2010 Digilent, Inc.										*/
-/************************************************************************/
-/*  Module Description: 												*/
-/*		DEPP Demo demonstrates how to transfer data to and from			*/
-/*		a Digilent FPGA board using the DEPP module of the Adept		*/
-/*		SDK.															*/
-/*																		*/
-/************************************************************************/
-/*  Revision History:													*/
-/*																		*/
-/*	03/02/2010(AaronO): created											*/
-/*																		*/
-/************************************************************************/
+
 
 #define	_CRT_SECURE_NO_WARNINGS
 
@@ -26,25 +8,26 @@
 
 #if defined(WIN32)
 
-	/* Include Windows specific headers here.
-	*/
+	/* Include Windows specific headers here.*/
 #include <windows.h>
 
 #else
 
-	/* Include Unix specific headers here.
-	*/
-
 #endif
+
+#define DPCAPI 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "dpcdecl.h" 
-#include "depp.h"
-#include "dmgr.h"
 
+#include "digilent.adept.sdk_v2.4.2/include/dpcdecl.h"
+#include "digilent.adept.sdk_v2.4.2/include/dmgr.h"
+#include "digilent.adept.sdk_v2.4.2/include/depp.h"
+#include "digilent.adept.sdk_v2.4.2/include/daci.h"
+#include "digilent.adept.sdk_v2.4.2/include/dpcutil.h"
+#include "digilent.adept.sdk_v2.4.2/include/dpcdefs.h"
 	/* ------------------------------------------------------------ */
 	/*					Local Type and Constant Definitions			*/
 	/* ------------------------------------------------------------ */
@@ -103,6 +86,11 @@ void		DoGetRegRepeat();
 
 void		StrcpyS(char* szDst, size_t cchDst, const char* szSrc);
 
+
+// Making the Error Code pointer
+ERC* error;
+
+
 /* ------------------------------------------------------------ */
 /*				Procedure Definitions							*/
 /* ------------------------------------------------------------ */
@@ -132,6 +120,11 @@ int main(int cszArg, char* rgszArg[]) {
 	//	return 1;
 	//}
 
+	// First initializing the device, returns false if can't initialize
+
+	if (!DpcInit(error))
+		return 0;
+
 	// DMGR API Call: DmgrOpen
 	if (!DmgrOpen(&hif, szDvc)) {
 		printf("DmgrOpen failed (check the device name you provided)\n");
@@ -155,22 +148,19 @@ int main(int cszArg, char* rgszArg[]) {
 	{
 		printf("Please enter the values of bits you'd like to find!");
 		
-		scanf("%c", choice);
+		//scanf("%c", choice);
 
-		if (choice == 'q')
-		{
-			return 0;
-		}
-
-		if (choice != 'q')
-		{
-			request_bit = BYTE(choice);
-		}
-
+		request_bit = { 0x0 };
 
 		if (fGetReg) {
-			DeppGetReg(hif, request_bit, bit_storage, value);						/* Get single byte from register */
+			DeppGetReg(hif, request_bit, bit_storage, value);	/* Get single byte from register */
+
+			printf("%c",value);
+
+
 		}
+
+		
 
 	}
 

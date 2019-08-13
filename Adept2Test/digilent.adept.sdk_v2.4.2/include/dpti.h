@@ -22,6 +22,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dspi.h>
 #if !defined(DPTI_INCLUDED)
 #define      DPTI_INCLUDED
 

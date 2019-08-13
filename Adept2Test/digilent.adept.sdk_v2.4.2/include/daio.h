@@ -20,6 +20,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <demc.h>
 #if !defined(DAIO_INCLUDED)
 #define      DAIO_INCLUDED
 

@@ -23,6 +23,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <dpio.h>
 #if !defined(DMGT_INCLUDED)
 #define      DMGT_INCLUDED
 
