@@ -41,9 +41,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "dpcdecl.h" 
-#include "depp.h"
-#include "dmgr.h"
+//#include "dpcdecl.h" 
+#include "./depp.h"
+#include "./dmgr.h"
 
 /* ------------------------------------------------------------ */
 /*					Local Type and Constant Definitions			*/

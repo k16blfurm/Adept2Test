@@ -65,7 +65,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Adept2Test.cpp">
+    <ClCompile Include="DaciDemo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Adept2Test.cpp.custom">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,6 +1,6 @@
 /************************************************************************/
 /*                                                                      */
-/*    dstm.h    --    Interface Declarations for dstm.DLL               */
+/*    depp.h  --    Interface Declarations for depp.DLL                 */
 /*                                                                      */
 /************************************************************************/
 /*    Author: Joshua Pederson                                           */
@@ -9,29 +9,31 @@
 /*  File Description:                                                   */
 /*                                                                      */
 /*    This header file contains the interface declarations for the      */
-/*    applications programming interface to the Digilent dstm.DLL       */
+/*    applications programming interface to the Digilent depp.DLL       */
 /*                                                                      */
-/*    This DLL provides API services to provide the hi-speed            */
-/*    synchronous data transfer application protocol for Adept2.        */
+/*    This DLL provides API services to provide the EPP-style data      */
+/*    transfer application protocol for Adept2.                         */
 /*                                                                      */
 /************************************************************************/
 /*  Revision History:                                                   */
 /*                                                                      */
 /*  04/23/2007(JPederson): Created                                      */
-/*  08/15/2007(JPederson):  changed File and API name to dstm           */
-/*  10/01/2008(GeneA): Added DstmEnableEx                               */
+/*  08/15/2007(JPederson): changed File and API name to depp            */
+/*  10/01/2008(GeneA): Added DeppEnableEx                               */
 /*  12/07/2009(GeneA): change int parameters to INT32                   */
-/*  02/26/2010(MichaelA): rewrote to be cross platform compatible       */
+/*  02/25/2010(MichaelA): rewrote to be cross platform compatible       */
 /*                                                                      */
 /************************************************************************/
 
-#if !defined(DSTM_INCLUDED)
-#define      DSTM_INCLUDED
+#if !defined(DEPP_INCLUDED)
+#define      DEPP_INCLUDED
 
 /* ------------------------------------------------------------ */
 /*                  Miscellaneous Declarations                  */
 /* ------------------------------------------------------------ */
 
+/* Define the port properties bits for EPP ports.
+*/
 
 /* ------------------------------------------------------------ */
 /*                  General Type Declarations                   */
@@ -49,23 +51,34 @@
 
 
 /* ------------------------------------------------------------ */
-/*                Interface Procedure Declarations                */
+/*                Interface Procedure Declarations              */
 /* ------------------------------------------------------------ */
 
-DPCAPI  BOOL    DstmGetVersion(char * szVersion);
-DPCAPI  BOOL    DstmGetPortCount(HIF hif, INT32 * pcprt);
-DPCAPI  BOOL    DstmGetPortProperties(HIF hif, INT32 prtReq, DWORD * pdprp); 
-DPCAPI  BOOL    DstmEnable(HIF hif);
-DPCAPI  BOOL    DstmEnableEx(HIF hif, INT32 prtReq);
-DPCAPI  BOOL    DstmDisable(HIF hif);
+/* Basic interface functions.
+*/
+DPCAPI  BOOL    DeppGetVersion(char * szVersion);
+DPCAPI  BOOL    DeppGetPortCount(HIF hif, INT32 * pcprt);
+DPCAPI  BOOL    DeppGetPortProperties(HIF hif, INT32 prtReq, DWORD * pdprp); 
+DPCAPI  BOOL    DeppEnable(HIF hif);
+DPCAPI  BOOL    DeppEnableEx(HIF hif, INT32 prtReq);
+DPCAPI  BOOL    DeppDisable(HIF hif);
 
-//overlapped functions
-DPCAPI  BOOL    DstmIO (HIF hif, BYTE * rgbOut, DWORD cbOut, BYTE * rgbIn, DWORD cbIn, BOOL fOverlap);
-DPCAPI  BOOL    DstmIOEx (HIF hif, BYTE * rgbOut, DWORD cbOut, BYTE * rgbIn, DWORD cbIn, BOOL fOverlap);
+/* Data transfer functions
+*/
+DPCAPI  BOOL    DeppPutReg (HIF hif, BYTE bAddr, BYTE bData, BOOL fOverlap);
+DPCAPI  BOOL    DeppGetReg (HIF hif, BYTE bAddr, BYTE * pbData, BOOL fOverlap);
+DPCAPI  BOOL    DeppPutRegSet (HIF hif, BYTE * pbAddrData, DWORD nAddrDataPairs, BOOL fOverlap);
+DPCAPI  BOOL    DeppGetRegSet (HIF hif, BYTE * pbAddr, BYTE * pbData, DWORD cbData, BOOL fOverlap);
+DPCAPI  BOOL    DeppPutRegRepeat (HIF hif, BYTE bAddr, BYTE * pbData, DWORD cbData, BOOL fOverlap);
+DPCAPI  BOOL    DeppGetRegRepeat (HIF hif, BYTE bAddr, BYTE * pbData, DWORD cbData, BOOL fOverlap);
+
+/* Misc. control functions
+*/
+DPCAPI  BOOL    DeppSetTimeout(HIF hif, DWORD tnsTimeoutTry, DWORD * ptnsTimeout);
 
 /* ------------------------------------------------------------ */
 
-#endif                    // DSTM_INCLUDED
+#endif                    // DEPP_INCLUDED
 
 /************************************************************************/
 

@@ -27,6 +27,7 @@
 /*                                                                      */
 /************************************************************************/
 
+#include <djtg.h>
 #if !defined(DGIO_INCLUDED)
 #define      DGIO_INCLUDED
 

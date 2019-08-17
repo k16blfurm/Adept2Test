@@ -91,13 +91,14 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Old\Adept2Test\digilent.adept.sdk_v2.4.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\Blaine\Documents\GitHub\Adept2Test\Adept2Test\digilent.adept.sdk_v2.4.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Digilent\AdeptUtilities;C:\Program Files %28x86%29\Digilent\Runtime\UsbDriver\amd64;H:\Github Projects\Adept2Test\Old\Adept2Test\digilent.adept.sdk_v2.4.2\lib;C:\Program Files %28x86%29\Digilent\Runtime\UsbDriver\i386;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>dabs.lib;daci.lib;daio.lib;demc.lib;depp.lib;dgio.lib;djtg.lib;dmgr.lib;dmgt.lib;dpcomm.lib;dpcutil.lib;dpio.lib;dpti.lib;dspi.lib;dstm.lib;dtwi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>1</Version>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -175,15 +176,13 @@
     <ClInclude Include="digilent.adept.sdk_v2.4.2\include\dtwi.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Adept2Test.cpp">
+    <ClCompile Include="Adept2Test.cpp.custom">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StaticLib1\StaticLib1.vcxproj">
-      <Project>{efca06a2-b098-4393-a97d-94ebd993ddd3}</Project>
-    </ProjectReference>
+    <ClCompile Include="DaciDemo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

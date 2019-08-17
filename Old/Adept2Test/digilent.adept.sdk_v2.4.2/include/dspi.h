@@ -27,7 +27,6 @@
 /*                                                                      */
 /************************************************************************/
 
-#include <dstm.h>
 #if !defined(DSPI_INCLUDED)
 #define      DSPI_INCLUDED
 

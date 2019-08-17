@@ -24,7 +24,6 @@
 /*                                                                      */
 /************************************************************************/
 
-#include <dpti.h>
 #if !defined(DPIO_INCLUDED)
 #define      DPIO_INCLUDED
 
