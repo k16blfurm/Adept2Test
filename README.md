@@ -8,3 +8,6 @@ In this project, I tried to orignally use a Visual Studio project, which kinda s
 Just for reference, this is how you add path information for Minigw on Windows (still works in 10)...:
 
 https://www.rose-hulman.edu/class/csse/resources/MinGW/installation.htm
+
+
+I gave up on the Windows Version for now, so the current one I'm working on is the Linux folder. I will get this robust and remove the Visual Studio Project working soon or remove it from the repostitory...
