@@ -1,7 +1,7 @@
 # Ubuntu 18.04 Installation and Usage
 This directory contains all of the necessary files for running Digilent Adept 2 on Ubuntu 18.04. This description contains detailed
 instructions on how to install Adept 2 on your Linux machine and how to use the given files to be able to write and read to the registers
-on the CmodS6 FPGA using Digilent's Asynchronous Parallel Interface (DEPP) and the command line.
+on the Cmod S6 FPGA using Digilent's Asynchronous Parallel Interface (DEPP) and the command line.
 
 ## Prerequisites
 The first thing that you will need to do is download the approproate Adept 2 Runtime, Utilities, and SDK for Linux. I would highly
@@ -18,21 +18,22 @@ with the deb file, it just works like its supposed to without any trouble. Final
 downloaded. The SDK is what contans the sample DEPP project that we will running to work with the registers on the FPGA.
 
 ## Checking if Adept 2 is Working
-To test if you have Adept installed correctly, you need to first plug in the CmodS6 FPGA ito your machine using your USB cable.
+To test if you have Adept installed correctly, you need to first plug in the Cmod S6 FPGA ito your machine using your USB cable.
 Then, open your terminal and type this in:
 
 ```
-djtgcfg init -d Nexys3
+djtgcfg init -d CmodS6
 ```
 and you should get an output that looks like this:
 
 ```
 Initializing scan chain...
-Found Device ID: 34002093
+Found Device ID: 24000093
+
 Found 1 device(s):
-   Device 0: XC6SLX16
+   Device 0: XC6SLX4
 ```
-Where the device ID and device 0 varies depending on what board you have plugged in. In our case, it should correspond to the CmodS6
+Where the device ID and device 0 varies depending on what board you have plugged in. In our case, it should correspond to the Cmod S6
 FPGA device. If this works, then Adpet should be successfully installed.
 
 ## Compiling the DEPP Demo
@@ -105,7 +106,7 @@ actually comminicate with the registers. We will need to use the Xilinx ISE and 
 ```
 within the SDK. You don't need to modify anything within this file to get it to work.
 
-You also need to download the CmodS6 master UCF file from:
+You also need to download the Cmod S6 master UCF file from:
 [Digilent CmodS6] https://reference.digilentinc.com/reference/programmable-logic/cmod-s6/start()
 
 You will then need to modify the UCF file into this:
@@ -204,7 +205,7 @@ Usage: ./DeppDemo <action> <register> -d <device name> [options]
        -b <byte>                        Value to load into register
 ```
 
-However, I will show the most important commands for our CmodS6 board.
+However, I will show the most important commands for our Cmod S6 board.
 
 For our project, we only need to read bits, but you can also write them. You can read a single bit to stream by writing:
 
@@ -229,7 +230,7 @@ which will display the contents of the hex file in the command line in binary, a
 ```
 00000000: 0000 0000 0000 0000 0000
 ```
-We are now able to successfully read and write to the registers of the CmodS6 FPGA using Adept 2 running on Ubuntu 18.04!
+We are now able to successfully read and write to the registers of the Cmod S6 FPGA using Adept 2 running on Ubuntu 18.04!
 
 # Streaming Out Bytes
 The file CMOD_Depp.cpp has created and added to this directory which streams the output to a byte and saves it to a file using ostream.
