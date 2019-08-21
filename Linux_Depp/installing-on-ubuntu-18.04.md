@@ -33,8 +33,7 @@ Found Device ID: 24000093
 Found 1 device(s):
    Device 0: XC6SLX4
 ```
-Where the device ID and device 0 varies depending on what board you have plugged in. In our case, it should correspond to the Cmod S6
-FPGA device. If this works, then Adpet should be successfully installed.
+The device name that you enter after the -d in the command, and the outputs of the Device ID and Device 0 will vary depending on what board you have plugged in. In our case, everything corresponds to the Cmod S6 FPGA device. If this works, then Adept should be successfully installed.
 
 ## Compiling the DEPP Demo
 Before you can us the DEPP Demom you need to compile it first. Open up your terminal and navigate into your SDK directroy.
