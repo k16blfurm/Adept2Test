@@ -10,4 +10,6 @@ Just for reference, this is how you add path information for Minigw on Windows (
 https://www.rose-hulman.edu/class/csse/resources/MinGW/installation.htm
 
 
-I gave up on the Windows Version for now, so the current one I'm working on is the Linux folder. I will get this robust and remove the Visual Studio Project working soon or remove it from the repostitory...
+~~I gave up on the Windows Version for now, so the current one I'm working on is the Linux folder. I will get this robust and remove the Visual Studio Project working soon or remove it from the repostitory...~~
+
+Update: got the Linux version working for the most part. Need to figure out MiniGW if needed and add more features to linux version (Ubuntu 18.04)
