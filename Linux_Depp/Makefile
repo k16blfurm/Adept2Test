@@ -1,3 +1,5 @@
+# Changed makefile for DeppDemo
+
 CC = g++
 INC = /usr/include/digilent/adept
 LIBDIR = /usr/lib64/digilent/adept
